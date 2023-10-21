@@ -3,4 +3,5 @@ Grupo 2:
 Joseph Daniel Tello Laiza
 Cesar Raul Valdivia Huayllas (Presente)
 Benjamin Madrid Jara
-Diego Inca Arroyo
+Diego Inca Arroyo (presente)
+
