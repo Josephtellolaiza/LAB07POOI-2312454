@@ -1,69 +1,90 @@
 package Trabajo;
 
-import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
-public class Profesor {
+public class Profesor extends Persona
+{
 	private int numHoras;
     private int aniosExperiencia;
-    private Curso[] cursos;
+    private List<Curso> cursos = new ArrayList<Curso>();
+    private List<RegistroNota> registros = new ArrayList<RegistroNota>();
+    
+    public Profesor()
+    {}
+    
+    public Profesor(int dni, String nombre, String apellido, int edad, String correo, int telefono, int numHoras,
+			int aniosExperiencia)
+    {
+		super(dni, nombre, apellido, edad, correo, telefono);
+		this.numHoras = numHoras;
+		this.aniosExperiencia = aniosExperiencia;
+	}
 
-    public Profesor() {
-        cursos = new Curso[0];
-    }
-
-    public Profesor(int numHoras, int aniosExperiencia) {
-        this();
-        this.numHoras = numHoras;
-        this.aniosExperiencia = aniosExperiencia;
-    }
-
-    public int getNumHoras() {
+	public int getNumHoras() 
+	{
         return numHoras;
     }
 
-    public void setNumHoras(int numHoras) {
+    public void setNumHoras(int numHoras) 
+    {
         this.numHoras = numHoras;
     }
 
-    public int getAniosExperiencia() {
+    public int getAniosExperiencia() 
+    {
         return aniosExperiencia;
     }
 
-    public void setAniosExperiencia(int aniosExperiencia) {
+    public void setAniosExperiencia(int aniosExperiencia) 
+    {
         this.aniosExperiencia = aniosExperiencia;
     }
 
-    public Curso[] getCursos() {
-        return cursos;
+    public List<Curso> getCursos() 
+    {
+		return cursos;
+	}
+
+	public void setCursos(List<Curso> cursos) 
+	{
+		this.cursos = cursos;
+	}
+
+    public List<RegistroNota> getRegistros() 
+    {
+		return registros;
+	}
+
+	public void setRegistros(List<RegistroNota> registros) 
+	{
+		this.registros = registros;
+	}
+
+	public double calcSalarioDiario(double salarioHora) 
+    {
+        double numHoras = getNumHoras();
+        double salarioDiario;
+    	salarioDiario = numHoras * salarioHora;
+    	
+    	return salarioDiario;
     }
 
-    public void setCursos(Curso[] cursos) {
-        this.cursos = cursos;
+    public void asignarCurso(Curso curso) 
+    {
+    	cursos.add(curso);
     }
 
-    // Método para calcular el salario diario del profesor
-    public double calcSalarioDiario(double numHoras) {
-        // Implementa la lógica para calcular el salario diario del profesor
-        // usando el número de horas trabajadas y cualquier otra consideración
-        // necesaria en tu aplicación.
-        return numHoras * salarioPorHora; // Debes definir la variable salarioPorHora
+    public void agregarRegistro(RegistroNota registro)
+    {
+    	registros.add(registro);
     }
-
-    // Método para asignar un curso al profesor
-    public void asignarCurso(Curso curso) {
-        // Implementa la lógica para asignar un curso al profesor
-        // Puedes necesitar modificar la estructura de datos para almacenar los cursos asignados
-        // Por ejemplo, podrías usar una lista en lugar de un arreglo.
-    }
-
-    @Override
-    public String toString() {
-        return "Profesor{" +
-                "numHoras=" + numHoras +
-                ", aniosExperiencia=" + aniosExperiencia +
-                ", cursos=" + Arrays.toString(cursos) +
-                '}';
-    }
+    
+	@Override
+	public String toString() 
+	{
+		return "Profesor [numHoras=" + numHoras + ", aniosExperiencia=" + aniosExperiencia + ", cursos=" + cursos + "]";
+	}
 }
 
 

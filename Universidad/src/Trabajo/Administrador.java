@@ -1,56 +1,50 @@
 package Trabajo;
 
-public class Administrador {
+public class Administrador extends Persona 
+{
 	private String rango;
     private int oficina;
     private int adminID;
     
-    public Administrador() {
-    }
+    public Administrador()
+    {}
+    
+	public Administrador(int dni, String nombre, String apellido, int edad, String correo, int telefono, String rango,
+			int oficina) 
+	{
+		super(dni, nombre, apellido, edad, correo, telefono);
+		this.rango = rango;
+		this.oficina = oficina;
+	}
 
-    public Administrador(String rango, int oficina) {
-        this.rango = rango;
-        this.oficina = oficina;
-        this.adminID = generarIDUnico();
-    }
-
-    public String getRango() {
+	public String getRango()
+	{
         return rango;
     }
 
-    public void setRango(String rango) {
+    public void setRango(String rango) 
+    {
         this.rango = rango;
     }
 
-    // Métodos getter y setter para oficina
-    public int getOficina() {
+    public int getOficina() 
+    {
         return oficina;
     }
 
-    public void setOficina(int oficina) {
+    public void setOficina(int oficina) 
+    {
         this.oficina = oficina;
     }
-    public void programarReunion(String decision) {
-        // Implementa la lógica para programar una reunión con la decisión dada
-        System.out.println("Reunión programada con decisión: " + decision);
+    public void programarReunion(String decision) 
+    {
+        System.out.println("Reunión programada para tomar la siguiente decisión: " + decision);
     }
 
-    // Método toString para representar el objeto como una cadena
-    @Override
-    public String toString() {
-        return "Administrador{" +
-                "rango='" + rango + '\'' +
-                ", oficina=" + oficina +
-                ", adminID=" + adminID +
-                '}';
-    }
-
-    // Método para generar un ID único para el administrador (solo como ejemplo, implementa tu lógica según tus necesidades)
-    private int generarIDUnico() {
-        // Implementa la lógica para generar un ID único
-        // Puedes usar UUID u otro método para generar IDs únicos
-        // Este es solo un ejemplo y no es seguro para aplicaciones reales.
-        return (int) (Math.random() * 1000);
-    }
+	@Override
+	public String toString() 
+	{
+		return "Administrador [rango=" + rango + ", oficina=" + oficina + ", adminID=" + adminID + "]";
+	}
 }
 

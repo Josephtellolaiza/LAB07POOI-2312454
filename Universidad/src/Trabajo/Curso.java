@@ -7,7 +7,7 @@ public class Curso
 {
 	private String bloque;
 	private String formatoDictado;
-	private List<Persona> personas = new ArrayList<Persona>;
+	private List<Persona> personas = new ArrayList<Persona>();
 	private String aula;
 	private Horario horario = new Horario();
 	private Carrera carrera = new Carrera();
